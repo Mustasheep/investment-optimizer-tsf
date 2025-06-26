@@ -1,0 +1,27 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: get_marketing_data_from_api
+display_name: Get Marketing Data from API
+description: Busca dados de marketing da API da Meta e os salva como CSV.
+version: 1
+
+inputs:
+  key_vault_name:
+    type: string
+  secret_name:
+    type: string
+
+outputs:
+  output_data:
+    type: uri_folder
+
+code: ../src/
+
+environment:
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
+  conda_file: ./get_data_env.yml
+
+command: >-
+  python get_data.py
+  --key_vault_name ${{inputs.key_vault_name}}
+  --secret_name ${{inputs.secret_name}}
+  --output_data ${{outputs.output_data}}

@@ -1,0 +1,11 @@
+name: get-data-environment
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - pandas
+    - requests
+    - azure-keyvault-secrets
+    - azure-identity

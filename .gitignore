@@ -1,0 +1,6 @@
+keyvault.ipynb
+
+.venv
+__pycache__/
+
+config.json
