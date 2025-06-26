@@ -1,5 +1,6 @@
 import argparse
 import pandas as pd
+import numpy as np
 import os
 import logging
 import mlflow
@@ -55,7 +56,8 @@ mlflow.start_run()
 logging.info("Avaliando o modelo e registrando métricas...")
 preds = model.predict(X_test)
 mae = mean_absolute_error(y_test, preds)
-rmse = mean_squared_error(y_test, preds, squared=False)
+mse = mean_squared_error(y_test, preds)
+rmse = np.sqrt(mse)
 
 mlflow.log_metric("mae", mae)
 mlflow.log_metric("rmse", rmse)
