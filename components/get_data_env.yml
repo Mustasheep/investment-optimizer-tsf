@@ -6,6 +6,7 @@ dependencies:
   - pip
   - pip:
     - pandas
+    - numpy
     - requests
     - azure-keyvault-secrets
     - azure-identity
