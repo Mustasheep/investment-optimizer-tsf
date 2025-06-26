@@ -12,3 +12,7 @@ dependencies:
     - scikit-learn
     - xgboost
     - matplotlib
+    - mlflow==2.14.1
+    - azureml-mlflow==1.55.0
+    - azureml-sdk 
+    - azureml-dataset-runtime
