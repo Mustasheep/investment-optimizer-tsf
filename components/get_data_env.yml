@@ -9,3 +9,6 @@ dependencies:
     - requests
     - azure-keyvault-secrets
     - azure-identity
+    - scikit-learn
+    - xgboost
+    - matplotlib

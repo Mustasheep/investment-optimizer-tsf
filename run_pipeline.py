@@ -6,8 +6,10 @@ from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 ml_client = MLClient.from_config(credential=credential)
 
-# --- CARREGAR COMPONENTE DO ARQUIVO YML ---
+# --- CARREGAR COMPONENTES DOS ARQUIVOS YML ---
 get_data_component = load_component(source="./components/get_data_component.yml")
+process_data_component = load_component(source="./components/process_data_component.yml")
+train_component = load_component(source="./components/train_forecast_component.yml")
 
 # --- DEFINIÇÃO DO PIPELINE ---
 @pipeline(
@@ -19,13 +21,24 @@ def marketing_data_pipeline(
     key_vault_name: str,
     secret_name: str,
 ):
+    # Etapa 1: Buscar dados da API
     get_data_step = get_data_component(
         key_vault_name=key_vault_name,
         secret_name=secret_name
     )
 
+    # Etapa 2: Preocessar os dados e criar features
+    process_data_step = process_data_component(
+        input_data=get_data_step.outputs.output_data
+    )
+
+    # Etapa 3: Trainar o modelo
+    train_model_step = train_component(
+        processed_data=process_data_step.outputs.output_data
+    )
+
     return {
-        "pipeline_output_data": get_data_step.outputs.output_data
+        "pipeline_output_data": train_model_step.outputs.trained_model
     }
 
 # --- EXECUÇÃO DO PIPELINE ---
