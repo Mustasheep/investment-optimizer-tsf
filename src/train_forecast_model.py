@@ -14,6 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # --- Argumentos e Componente ---
 parser = argparse.ArgumentParser()
 parser.add_argument("--processed_data", type=str, help="Pasta de entrada com os dados processados")
+parser.add_argument("--trained_model", type=str, help="Pasta de saída para o modelo treinado")
 args = parser.parse_args()
 
 # --- Carregar os Dados ---
