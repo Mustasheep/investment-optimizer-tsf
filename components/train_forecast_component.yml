@@ -21,3 +21,4 @@ environment:
 command: >-
   python train_forecast_model.py
   --processed_data ${{inputs.processed_data}}
+  --trained_model ${{outputs.trained_model}}
