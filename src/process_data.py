@@ -1,5 +1,6 @@
 import argparse
 import pandas as pd
+import numpy as np
 import holidays
 import os
 import logging
@@ -46,6 +47,17 @@ logging.info("Features de média móvel criadas.")
 br_holidays = holidays.Brazil()
 df['eh_feriado'] = df.index.map(lambda date: 1 if date in br_holidays else 0)
 legging.info('Feature de feriado criada.')
+
+# Etapa 6: Criar features cíclicas para dia da semana e mês 
+df['dia_semana_sin'] = np.sin(2 * np.pi * df['dia_da_semana']/7.0)
+df['dia_semana_cos'] = np.cos(2 * np.pi * df['dia_da_semana']/7.0)
+
+df['mes_sin'] = np.sin(2 * np.pi * df['mes']/12.0)
+df['mes_cos'] = np.cos(2 * np.pi * df['mes']/12.0)
+
+df.drop(columns=['dia_da_semana', 'mes'], inplace=True)
+logging.info("Features cíclicas para sazonalidade criadas.")
+
 
 # Lidando com valores NaN caso forem gerados
 df.dropna(inplace=True)
