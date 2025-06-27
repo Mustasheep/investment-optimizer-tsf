@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 name: train_timeseries_forecaster
-display_name: Train Time Series Forecaster
+display_name: Train XGBoost Forecaster
 description: Treina um modelo XGBoost para previsão de séries temporais.
 version: 4
 
@@ -12,7 +12,7 @@ code: ../src/
 
 environment:
   image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
-  conda_file: ./get_data_env.yml
+  conda_file: ./environment.yml
 
 command: >-
   python train_forecast_model.py
