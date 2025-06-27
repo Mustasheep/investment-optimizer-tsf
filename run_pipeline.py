@@ -7,11 +7,13 @@ ml_client = MLClient.from_config(credential=credential)
 
 get_data_component = load_component(source="./components/get_data_component.yml")
 process_data_component = load_component(source="./components/process_data_component.yml")
-train_component = load_component(source="./components/train_forecast_component.yml")
+train_sarimax_component = load_component(source="./components/train_sarimax_component.yml")
+train_xgboost_component = load_component(source="./components/train_forecast_component.yml")
+print("Componentes carregados.")
 
 @pipeline(
     compute="cluster-cpu-dp100",
-    description="Pipeline E2E final: busca, processa e treina um modelo de forecast.",
+    description="Pipeline busca, processa e treina dois modelo de forecast, XGBoost e Prophet.",
 )
 def full_marketing_pipeline(
     key_vault_name: str,
@@ -26,9 +28,13 @@ def full_marketing_pipeline(
         input_data=get_data_step.outputs.output_data
     )
 
-    train_model_step = train_component(
+    train_model_step = train_xgboost_component(
         processed_data=process_data_step.outputs.output_data
     )
+
+    train_sarimax_step = train_sarimax_component(
+        processed_data=process_data_step.outputs.output_data
+)
 
 pipeline_job = full_marketing_pipeline(
     key_vault_name="dp1000524355966",
