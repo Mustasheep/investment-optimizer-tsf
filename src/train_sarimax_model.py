@@ -23,7 +23,7 @@ input_file_path = os.path.join(args.processed_data, 'dados_processados.csv')
 df = pd.read_csv(input_file_path, parse_dates=True, index_col='date')
 
 # Garante uma frequência diária para os dados e interpola caso faltar dias
-df = df.asfrec('D')
+df = df.asfreq('D')
 df.interpolate(inplace=True)
 
 # --- PREPARAR VARIÁVEIS ---
