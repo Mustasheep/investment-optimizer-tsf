@@ -31,7 +31,7 @@ O projeto foi dividido em três componentes principais, formando um pipeline aut
 ### a) Componente 1: Extração de Dados (`get_data`)
 
 * Conecta-se de forma segura ao **Azure Key Vault** para recuperar o token de acesso da API.
-* Executa chamadas paginadas à API de Insights da Meta para extrair dados diários de desempenho (gasto, impressões, cliques, alcance) de um período especificado.
+* Executa chamadas paginadas à API de Insights da Meta para extrair dados diários de desempenho (gasto, impressões, cliques, alcance) no período de um ano.
 * Salva os dados brutos como um artefato no Azure ML, garantindo o versionamento e a rastreabilidade da fonte de dados.
 
 ### b) Componente 2: Engenharia de Features (`process_data`)
@@ -63,7 +63,7 @@ _Interpretação: Em média, as previsões de gasto diário do modelo erraram po
 
 ### Análise Visual da Previsão
 
-O gráfico abaixo compara os gastos reais (linha azul) com as previsões do modelo (linha tracejada laranja) para o período de teste. Observa-se que o modelo foi capaz de capturar bem a tendência e a sazonalidade dos dados.
+O gráfico abaixo compara os gastos reais (linha azul) com as previsões do modelo (linha tracejada laranja) para o período de teste. Observa-se que o modelo foi capaz de capturar bem um certo padrão dos dados, mais falhou no dia 25 de dezembro, não percebendo o feriado.
 
 ![grafico-previsao-real](/artefacts/previsao_vs_real.png)
 
