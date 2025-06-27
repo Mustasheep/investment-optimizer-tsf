@@ -78,7 +78,3 @@ O gráfico abaixo compara os gastos reais (linha azul) com as previsões do mode
 ---
 
 ## 6. Contato
-
-* **Nome:** [Seu Nome]
-* **LinkedIn:** https://www.linkedin.com/help/linkedin/answer/a549449/hvordan-kan-jeg-oprette-en-god-profil-pa-linkedin-?lang=da
-* **GitHub:** https://www.youtube.com/watch?v=TsaLQAetPLU
