@@ -1,5 +1,6 @@
 import argparse
 import pandas as pd
+import holidays
 import os
 import logging
 
@@ -40,6 +41,11 @@ logging.info("Features de lag criadas.")
 # Etapa 4: Criar features de Janela Móvel
 df['spend_media_movel_7d'] = df['spend'].rolling(window=7).mean().shift(1)
 logging.info("Features de média móvel criadas.")
+
+# Etapa 5: Criar features de feriados
+br_holidays = holidays.Brazil()
+df['eh_feriado'] = df.index.map(lambda date: 1 if date in br_holidays else 0)
+legging.info('Feature de feriado criada.')
 
 # Lidando com valores NaN caso forem gerados
 df.dropna(inplace=True)
