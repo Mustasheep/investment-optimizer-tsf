@@ -1,0 +1,19 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: train_sarimax_forecaster
+display_name: Train Sarimax Forecaster
+description: Treina um modelo SARIMAX para previsão de séries temporais.
+version: 2
+
+inputs:
+  processed_data:
+    type: uri_folder
+
+code: ../src/
+
+environment:
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
+  conda_file: ./environment.yml
+
+command: >-
+  python train_sarimax_model.py
+  --processed_data ${{inputs.processed_data}}
