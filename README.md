@@ -20,13 +20,13 @@ A solução foi desenvolvida como um pipeline de MLOps modular e reutilizável, 
 * **Bibliotecas Principais:** Python, Pandas, Scikit-learn, MLflow, Requests.
 * **Fonte de Dados:** API de Marketing da Meta (Facebook Ads).
 
-![arquitetura-pipeline](/artefacts/pipeline.png)
-
 ---
 
 ## 3. Metodologia
 
 O projeto foi dividido em três componentes principais, formando um pipeline automatizado:
+
+![arquitetura-pipeline](/artefacts/pipeline.png)
 
 ### a) Componente 1: Extração de Dados (`get_data`)
 
