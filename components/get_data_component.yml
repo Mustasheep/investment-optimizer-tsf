@@ -18,7 +18,7 @@ code: ../src/
 
 environment:
   image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
-  conda_file: ./get_data_env.yml
+  conda_file: ./environment.yml
 
 command: >-
   python get_data.py
