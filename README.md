@@ -83,7 +83,21 @@ _Interpretação: Em média, as previsões de gasto diário do modelo erraram po
 
 ## 5. Resultados do Modelo SARIMAX
 
-Durante os experimentos, foram aplicados testes com o modelo estatístico SARIMAX, afim de estudar os resultados, avaliar e comparar com o XGBoost.
+Para otimizar o desempenho do SARIMAX, foi incorporado novas features: `cpc` (custo por clique) e `ctr` (taxa de cliques). Além disso, utilizamos a técnica de Grid Search para sistematicamente explorar e identificar os melhores parâmetros para o modelo SARIMAX, garantindo sua calibração ideal para os dados em questão.
+
+* **Mean Absolute Error (MAE):** 14.7
+* **Root Mean Squared Error (RMSE):** 17.8
+
+![grafico-previsao-sarimax](/artefacts/previsao_sarimax.png)
+
+
+---
+
+## Conclusão da Análise Comparativa
+
+As análises e experimentos demonstraram que o modelo **XGBoost** se manteve consistentemente **superior e mais eficaz** na previsão do **gasto (`spend`)** dos anúncios quando comparado ao modelo SARIMAX.
+
+Apesar da aplicação de novas *features* e da otimização de parâmetros via Grid Search no SARIMAX, o XGBoost entregou um desempenho preditivo mais robusto e preciso para a variável `spend`. Isso indica que, para este cenário específico de previsão de gastos em anúncios, o **XGBoost é a escolha mais recomendada** devido à sua maior acurácia e eficácia comprovada.
 
 ---
 
