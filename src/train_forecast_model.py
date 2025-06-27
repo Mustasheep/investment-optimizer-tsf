@@ -16,7 +16,6 @@ parser.add_argument("--processed_data", type=str, help="Pasta de entrada com os 
 args = parser.parse_args()
 
 # --- Lógica de Treinamento ---
-# ... (Todo o código de carregar, preparar, treinar e avaliar os dados continua o mesmo)
 logging.info("Iniciando o treinamento do modelo de forecast...")
 input_file_path = os.path.join(args.processed_data, 'dados_processados.csv')
 df = pd.read_csv(input_file_path, parse_dates=True, index_col='date')
