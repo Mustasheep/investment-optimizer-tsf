@@ -20,7 +20,7 @@ A solução foi desenvolvida como um pipeline de MLOps modular e reutilizável, 
 * **Bibliotecas Principais:** Python, Pandas, Scikit-learn, MLflow, Requests.
 * **Fonte de Dados:** API de Marketing da Meta (Facebook Ads).
 
-![Arquitetura do Pipeline](https://i.imgur.com/3L0D3iB.png)
+![arquitetura-pipeline](/artefacts/pipeline.png)
 
 ---
 
@@ -65,7 +65,7 @@ _Interpretação: Em média, as previsões de gasto diário do modelo erraram po
 
 O gráfico abaixo compara os gastos reais (linha azul) com as previsões do modelo (linha tracejada laranja) para o período de teste. Observa-se que o modelo foi capaz de capturar bem a tendência e a sazonalidade dos dados.
 
-![Gráfico de Previsão vs. Real](https://i.imgur.com/URL_DA_SUA_IMAGEM_AQUI.png)
+![grafico-previsao-real](/artefacts/previsao_vs_real.png)
 
 ---
 
@@ -78,3 +78,5 @@ O gráfico abaixo compara os gastos reais (linha azul) com as previsões do mode
 ---
 
 ## 6. Contato
+
+*   [LinkedIn](https://www.linkedin.com/in/thiago-mustasheep/)
