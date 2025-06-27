@@ -52,7 +52,7 @@ O projeto foi dividido em três componentes principais, formando um pipeline aut
 
 ---
 
-## 4. Resultados do Modelo
+## 4. Resultados do Modelo XGBoost
 
 O modelo treinado alcançou **primeiramente** os seguintes resultados no conjunto de teste (últimos 14 dias):
 
@@ -75,15 +75,15 @@ Após identificar problemas de sazonalidade, trabalhei na construção de novas 
 * **Mean Absolute Error (MAE):** 10.5
 * **Root Mean Squared Error (RMSE):** 13.3
 
-_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 13,30. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões._
-
 ![grafico-previsao-real](/artefacts/previsao_vs_real_2.png)
----
 
-## 5. Próximos Passos e Melhorias
+_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 10,50. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões._
 
-* **Ajuste de Hiperparâmetros:** Executar um trabalho de "Sweep" no Azure ML para encontrar a combinação ótima de parâmetros para o XGBoost.
-* **Exploração de Modelos:** Testar outros algoritmos, como LightGBM ou modelos clássicos de séries temporais (ARIMA, Prophet).
+--- 
+
+## 5. Resultados do Modelo SARIMAX
+
+Durante os experimentos, foram aplicados testes com o modelo estatístico SARIMAX, afim de estudar os resultados, avaliar e comparar com o XGBoost.
 
 ---
 
