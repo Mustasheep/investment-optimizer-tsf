@@ -33,7 +33,7 @@ all_data = []
 
 url = (
     f"https://graph.facebook.com/v20.0/{ad_account_id}/insights?"
-    f"date_preset=last_90d&"
+    f"date_preset=last_year&"
     f"time_increment=1&"
     f"level=account&"
     f"fields=spend,impressions,clicks,reach&"
