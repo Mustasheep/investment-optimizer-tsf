@@ -29,7 +29,7 @@ df.interpolate(inplace=True)
 # --- PREPARAR VARIÁVEIS ---
 endog = df['spend'] # endog = y
 
-exog_features = ['clicks', 'impressions', 'eh_feriado', 'dia_semana_sin', 'dia_semana_cos']
+exog_features = ['clicks', 'impressions', 'eh_feriado', 'dia_semana_sin', 'dia_semana_cos', 'cpc', 'ctr']
 exog = df[exog_features] # exog = X
 
 # --- DIVIDIR EM TREINO E TESTE ---
@@ -39,8 +39,8 @@ exog_train, exog_test = exog.iloc[:train_size], exog.iloc[train_size:]
 
 # --- TREINAR O MODELO SARIMAX ---
 logging.info("Treinando o modelo SARIMAX...")
-sarimax_order = (1,1,1)
-seasonal_order = (1,1,0,7)
+sarimax_order = (0,1,1)
+seasonal_order = (0,0,1,7)
 
 model = sm.tsa.SARIMAX(
     endog=endog_train,
@@ -50,7 +50,7 @@ model = sm.tsa.SARIMAX(
 )
 results = model.fit(disp=False)
 logging.info("Treinamento concluído.")
-logging.info(results.summary())
+logging.info(f"\n\n{results.summary()}")
 
 # --- AVALIAR E REGISTRAR ---
 logging.info("Avaliando o modelo e registrando métricas...")
@@ -77,7 +77,7 @@ logging.info("Gráfico SARIMAX registrado como artefato.")
 # Registrar modelo
 logging.info("Registrando o modelo SARIMAX...")
 mlflow.statsmodels.log_model(
-    sm_model=results,
+    statsmodels_model=results,
     artifact_path="modelo_sarimax_spend",
     registered_model_name="modelo-sarimax-spend-dp100"
 )
