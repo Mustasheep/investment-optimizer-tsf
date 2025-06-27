@@ -45,7 +45,7 @@ O projeto foi dividido em três componentes principais, formando um pipeline aut
 
 ### c) Componente 3: Treinamento e Avaliação (`train_model`)
 
-* Utiliza os dados processados para treinar um modelo `XGBRegressor`.
+* Utiliza os dados processados para treinar os modelos `XGBRegressor` e `SARIMAX`.
 * A divisão dos dados é feita temporalmente, utilizando os 14 dias mais recentes como conjunto de teste para simular um cenário de previsão real.
 * Utiliza a técnica de *early stopping* para otimizar o treinamento e evitar overfitting.
 * Avalia o modelo, registra as métricas de performance, um gráfico de resultados e o modelo treinado no **MLflow**, garantindo total reprodutibilidade.
