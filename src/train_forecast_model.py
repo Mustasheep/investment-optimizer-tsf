@@ -22,11 +22,17 @@ df = pd.read_csv(input_file_path, parse_dates=True, index_col='date')
 logging.info(f"Lidas {len(df)} linhas de dados processados.")
 
 df.drop(columns=['date_start', 'date_stop'], inplace=True, errors='ignore')
+
 features = [
-    'impressions', 'clicks', 'reach', 'dia_da_semana', 'dia_do_mes', 
-    'mes', 'semana_do_ano', 'spend_lag_1', 'spend_lag_7', 'spend_media_movel_7d'
+    'impressions', 'clicks', 'reach',
+    'dia_semana_cos','dia_semana_sin', 'dia_do_mes', 
+    'mes_cos', 'mes_sin', 'semana_do_ano',
+    'spend_lag_1', 'spend_lag_7',
+    'spend_media_movel_7d',
+    'eh_feriado', 
 ]
 target = 'spend'
+
 X = df[features]
 y = df[target]
 

@@ -46,7 +46,7 @@ logging.info("Features de média móvel criadas.")
 # Etapa 5: Criar features de feriados
 br_holidays = holidays.Brazil()
 df['eh_feriado'] = df.index.map(lambda date: 1 if date in br_holidays else 0)
-legging.info('Feature de feriado criada.')
+logging.info('Feature de feriado criada.')
 
 # Etapa 6: Criar features cíclicas para dia da semana e mês 
 df['dia_semana_sin'] = np.sin(2 * np.pi * df['dia_da_semana']/7.0)

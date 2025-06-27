@@ -54,7 +54,7 @@ O projeto foi dividido em três componentes principais, formando um pipeline aut
 
 ## 4. Resultados do Modelo
 
-O modelo treinado alcançou os seguintes resultados no conjunto de teste (últimos 14 dias):
+O modelo treinado alcançou **primeiramente** os seguintes resultados no conjunto de teste (últimos 14 dias):
 
 * **Mean Absolute Error (MAE):** 16.8
 * **Root Mean Squared Error (RMSE):** 21.5
@@ -67,13 +67,23 @@ O gráfico abaixo compara os gastos reais (linha azul) com as previsões do mode
 
 ![grafico-previsao-real](/artefacts/previsao_vs_real.png)
 
+
+### Engenharia de Features para Sazonalidade
+
+Após identificar problemas de sazonalidade, trabalhei na construção de novas features para melhorar nosso modelo, utilizando a biblioteca `holidays` para identificar feriados brasileiros durante o ano gerando uma nova feature. Posteriormente, novas features cíclicas com `sen` e `cos` para o modelo entender que o dia 6 (Domingo) está perto do dia 0 (Segunda), ou que o mês 12 (Dezembro) está perto do mês 1 (Janeiro). Segue os novos resultados:
+
+* **Mean Absolute Error (MAE):** 10.5
+* **Root Mean Squared Error (RMSE):** 13.3
+
+_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 13,30. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões._
+
+![grafico-previsao-real](/artefacts/previsao_vs_real_2.png)
 ---
 
 ## 5. Próximos Passos e Melhorias
 
 * **Ajuste de Hiperparâmetros:** Executar um trabalho de "Sweep" no Azure ML para encontrar a combinação ótima de parâmetros para o XGBoost.
 * **Exploração de Modelos:** Testar outros algoritmos, como LightGBM ou modelos clássicos de séries temporais (ARIMA, Prophet).
-* **Implantação:** Implantar o modelo treinado em um Ponto de Extremidade em Lote (Batch Endpoint) para gerar previsões diárias de forma agendada.
 
 ---
 
