@@ -36,7 +36,7 @@ url = (
     f"date_preset=last_year&"
     f"time_increment=1&"
     f"level=account&"
-    f"fields=spend,impressions,clicks,reach&"
+    f"fields=spend,impressions,clicks,reach,cpc,ctr&"
     f"limit=100&"
     f"access_token={api_key}"
 )
