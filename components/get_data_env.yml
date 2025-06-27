@@ -8,6 +8,7 @@ dependencies:
     - pandas
     - numpy
     - requests
+    - holidays
     - azure-keyvault-secrets
     - azure-identity
     - scikit-learn
