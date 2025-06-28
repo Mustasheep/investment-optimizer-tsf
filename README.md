@@ -38,17 +38,17 @@ O projeto foi dividido em três componentes principais, formando um pipeline aut
 
 * Recebe os dados brutos do componente anterior.
 * Realiza a limpeza e transformação dos dados, convertendo as datas para um formato apropriado.
-* Cria um conjunto robusto de features de séries temporais para enriquecer o modelo, incluindo:
+* Cria um conjunto robusto de features de séries temporais para enriquecer o modelos, incluindo:
     * **Features de Calendário:** Dia da semana, dia do mês, mês, semana do ano.
     * **Features de Lag:** Valores de gasto de dias anteriores (ex: D-1, D-7).
     * **Features de Janela Móvel:** Média de gastos em uma janela de 7 dias para suavizar tendências.
 
 ### c) Componente 3: Treinamento e Avaliação (`train_model`)
 
-* Utiliza os dados processados para treinar os modelos `XGBRegressor` e `SARIMAX`.
+* Utiliza os dados processados para treinar os modelos `XGBoost` e `SARIMAX`.
 * A divisão dos dados é feita temporalmente, utilizando os 14 dias mais recentes como conjunto de teste para simular um cenário de previsão real.
 * Utiliza a técnica de *early stopping* para otimizar o treinamento e evitar overfitting.
-* Avalia o modelo, registra as métricas de performance, um gráfico de resultados e o modelo treinado no **MLflow**, garantindo total reprodutibilidade.
+* Avalia os modelos, registra as métricas de performance, um gráfico de resultados e o modelos treinado no **MLflow**, garantindo total reprodutibilidade.
 
 ---
 
