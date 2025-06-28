@@ -16,8 +16,8 @@ A solução foi desenvolvida como um pipeline de MLOps modular e reutilizável, 
 * **Orquestração:** Azure ML Pipelines & Components (SDK v2)
 * **Segurança:** Azure Key Vault para gerenciamento de chaves de API.
 * **Computação:** Azure ML Compute Cluster.
-* **Modelo:** XGBoost (`XGBRegressor`).
-* **Bibliotecas Principais:** Python, Pandas, Scikit-learn, MLflow, Requests.
+* **Modelo:** XGBoost (`XGBRegressor`) e SARIMAX (`Statsmodels`).
+* **Bibliotecas Principais:** Python, Pandas, Scikit-learn, MLflow, Requests, Azure.ai
 * **Fonte de Dados:** API de Marketing da Meta (Facebook Ads).
 
 ---
@@ -70,14 +70,14 @@ O gráfico abaixo compara os gastos reais (linha azul) com as previsões do mode
 
 ### Engenharia de Features para Sazonalidade
 
-Após identificar problemas de sazonalidade, trabalhei na construção de novas features para melhorar nosso modelo, utilizando a biblioteca `holidays` para identificar feriados brasileiros durante o ano gerando uma nova feature. Posteriormente, novas features cíclicas com `sen` e `cos` para o modelo entender que o dia 6 (Domingo) está perto do dia 0 (Segunda), ou que o mês 12 (Dezembro) está perto do mês 1 (Janeiro). Segue os novos resultados:
+Após identificar problemas de sazonalidade, trabalhei na construção de novas features para melhorar nosso modelo, utilizando a biblioteca `holidays` para identificar feriados brasileiros durante o ano e gerar uma nova feature. Posteriormente, novas features cíclicas com `sen` e `cos` para o modelo entender que o dia 6 (Domingo) está perto do dia 0 (Segunda), ou que o mês 12 (Dezembro) está perto do mês 1 (Janeiro). Segue os novos resultados:
 
 * **Mean Absolute Error (MAE):** 10.5
 * **Root Mean Squared Error (RMSE):** 13.3
 
 ![grafico-previsao-real](/artefacts/previsao_vs_real_2.png)
 
-_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 10,50. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões. E considerando a variação dos gastos no gráfico, de R$ 120 a R$ 180, demonstra que o modelo possui ótimas métricas de erro, tanto pelo `mae` quanto o `rmse`._
+_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 10,50. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões. E considerando a variação dos gastos no gráfico, de R$ 120 a R$ 180, demonstra que o modelo possui erros aceitáveis, tanto pelo `mae` quanto o `rmse`._
 
 --- 
 
