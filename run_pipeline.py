@@ -13,7 +13,7 @@ print("Componentes carregados.")
 
 @pipeline(
     compute="cluster-cpu-dp100",
-    description="Pipeline busca, processa e treina dois modelo de forecast, XGBoost e SARIMAX.",
+    description="Pipeline busca, processa e treina dois modelo de forecast, XGBoost e SARIMAX",
 )
 def full_marketing_pipeline(
     key_vault_name: str,
