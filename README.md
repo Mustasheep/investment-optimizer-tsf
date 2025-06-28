@@ -77,7 +77,7 @@ Após identificar problemas de sazonalidade, trabalhei na construção de novas 
 
 ![grafico-previsao-real](/artefacts/previsao_vs_real_2.png)
 
-_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 10,50. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões._
+_Interpretação: Em média, as previsões de gasto diário do modelo erraram por R$ 10,50. Isso indica uma grande melhoria e precisão do nosso modelo durante as novas previsões. E considerando a variação dos gastos no gráfico, de R$ 120 a R$ 180, demonstra que o modelo possui ótimas métricas de erro, tanto pelo `mae` quanto o `rmse`._
 
 --- 
 
