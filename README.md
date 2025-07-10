@@ -88,8 +88,6 @@ Para otimizar o desempenho do SARIMAX, foi incorporado novas features: `cpc` (cu
 * **Mean Absolute Error (MAE):** 14.7
 * **Root Mean Squared Error (RMSE):** 17.8
 
-![grafico-previsao-sarimax](/artefacts/previsao_sarimax.png)
-
 
 ---
 
